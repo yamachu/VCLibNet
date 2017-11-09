@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>VCLibNet</id>
+    <version>1.0.0</version>
+    <authors>yamachu</authors>
+    <owners>yamachu</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>SPTK wrapper for Voice Conversion</description>
+    <projectUrl>https://github.com/yamachu/VCLibNet</projectUrl>
+    <!-- <licenseUrl>https://raw.githubusercontent.com/yamachu/VCLibNet/master/LICENSE</licenseUrl> -->
+  </metadata>
+  <files>
+    <file src="..\ref\bin\Release\**\*.*" target="ref" exclude="**\*.deps.json" />
+    <file src="..\src\dist\Linux_Release\**" target="runtimes\linux\lib" exclude="**\*.deps.json" />
+    <file src="..\src\dist\OSX_Release\**" target="runtimes\osx\lib" exclude="**\*.deps.json" />
+    <file src="..\src\dist\Windows_Release\**" target="runtimes\win-x86\lib" exclude="**\*.deps.json" />
+    <file src="..\src\dist\Windows_Release\**" target="runtimes\win-x64\lib" exclude="**\*.deps.json" />
+
+    <file src="..\resources/linux/libvclib.so" target="runtimes/linux/native/libvclib.so" />
+    <file src="..\resources/osx/libvclib.dylib" target="runtimes/osx/native/libvclib.dylib" />
+    <file src="..\resources/win-x86/vclib.dll" target="runtimes/win-x86/native/vclib.dll" />
+    <file src="..\resources/win-x64/vclib.dll" target="runtimes/win-x64/native/vclib.dll" />
+
+    <!-- <file src="..\..\LICENSE" target="Content" /> -->
+  </files>
+</package>

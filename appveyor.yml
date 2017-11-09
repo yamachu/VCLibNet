@@ -1,0 +1,23 @@
+image: Visual Studio 2017
+before_build:
+  - cmd: dotnet restore ref
+  - cmd: dotnet restore src
+  - ps: . .\download_resources.ps1
+build_script:
+  - cmd: build.bat
+
+after_build:
+  - nuget pack nuget/VCLibNet.nuspec
+
+artifacts:
+  - path: /VCLibNet*.nupkg/
+    name: Nupkg
+
+deploy:
+  provider: GitHub
+  auth_token:
+    secure: "phbIUL1pW4otTYZTo79JgBo7dznsGhCGU3Jbs8jLhM482kySCkP2oXWofXKMPqtc"
+  artifact: Nupkg
+  on:
+    appveyor_repo_tag: true
+  force_update: true
