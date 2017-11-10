@@ -12,10 +12,10 @@
   </metadata>
   <files>
     <file src="..\ref\bin\Release\**\*.*" target="ref" exclude="**\*.deps.json" />
-    <file src="..\src\dist\Linux_Release\**" target="runtimes\linux\lib" exclude="**\*.deps.json" />
-    <file src="..\src\dist\OSX_Release\**" target="runtimes\osx\lib" exclude="**\*.deps.json" />
-    <file src="..\src\dist\Windows_Release\**" target="runtimes\win-x86\lib" exclude="**\*.deps.json" />
-    <file src="..\src\dist\Windows_Release\**" target="runtimes\win-x64\lib" exclude="**\*.deps.json" />
+    <file src="..\src\dist\Linux\**" target="runtimes\linux\lib" exclude="**\*.deps.json" />
+    <file src="..\src\dist\OSX\**" target="runtimes\osx\lib" exclude="**\*.deps.json" />
+    <file src="..\src\dist\Windows\**" target="runtimes\win-x86\lib" exclude="**\*.deps.json" />
+    <file src="..\src\dist\Windows\**" target="runtimes\win-x64\lib" exclude="**\*.deps.json" />
 
     <file src="..\resources/linux/libvclib.so" target="runtimes/linux/native/libvclib.so" />
     <file src="..\resources/osx/libvclib.dylib" target="runtimes/osx/native/libvclib.dylib" />
