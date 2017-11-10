@@ -5,15 +5,7 @@ namespace VCLibNet
 {
     internal static class BinDefinitions
     {
-#if __OSX
-        private const string DllName = "libvclib.dylib";
-#elif __Linux
-        private const string DllName = "libvclib.so";
-#elif __Win
-        private const string DllName = "vclib.dll";
-#else
-        private const string DllName = "NOT_SUPPORTED";
-#endif
+        private const string DllName = "vclib";
 
         [DllImport(DllName, CallingConvention = CallingConvention.Cdecl)]
         public static extern void SPTK_mgcep([In][MarshalAs(UnmanagedType.LPArray, SizeParamIndex = 1)]double[] spectrum, int sp_length,

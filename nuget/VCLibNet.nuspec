@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>VCLibNet</id>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <authors>yamachu</authors>
     <owners>yamachu</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -12,11 +12,8 @@
   </metadata>
   <files>
     <file src="..\ref\bin\Release\**" target="ref" exclude="**\*.deps.json" />
-    <file src="..\src\dist\Linux\**" target="runtimes\linux\lib" exclude="**\*.deps.json" />
-    <file src="..\src\dist\OSX\**" target="runtimes\osx\lib" exclude="**\*.deps.json" />
-    <file src="..\src\dist\Windows\**" target="runtimes\win-x86\lib" exclude="**\*.deps.json" />
-    <file src="..\src\dist\Windows\**" target="runtimes\win-x64\lib" exclude="**\*.deps.json" />
-
+    <file src="..\src\bin\Release\**" target="lib" exclude="**\*.deps.json" />
+    
     <file src="..\resources/linux/libvclib.so" target="runtimes/linux/native/libvclib.so" />
     <file src="..\resources/osx/libvclib.dylib" target="runtimes/osx/native/libvclib.dylib" />
     <file src="..\resources/win-x86/vclib.dll" target="runtimes/win-x86/native/vclib.dll" />
