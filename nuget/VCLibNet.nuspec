@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>VCLibNet</id>
-    <version>1.0.0</version>
+    <version>1.0.3</version>
     <authors>yamachu</authors>
     <owners>yamachu</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -11,7 +11,7 @@
     <!-- <licenseUrl>https://raw.githubusercontent.com/yamachu/VCLibNet/master/LICENSE</licenseUrl> -->
   </metadata>
   <files>
-    <file src="..\ref\bin\Release\**\*.*" target="ref" exclude="**\*.deps.json" />
+    <file src="..\ref\bin\Release\**" target="ref" exclude="**\*.deps.json" />
     <file src="..\src\dist\Linux\**" target="runtimes\linux\lib" exclude="**\*.deps.json" />
     <file src="..\src\dist\OSX\**" target="runtimes\osx\lib" exclude="**\*.deps.json" />
     <file src="..\src\dist\Windows\**" target="runtimes\win-x86\lib" exclude="**\*.deps.json" />
