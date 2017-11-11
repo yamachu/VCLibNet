@@ -33,5 +33,21 @@ namespace VCLibNet
         {
             throw null;
         }
+
+        public static double[] DifferentialMelCepstrumCompensation(double[] rawform, double[] sp, double[] mcep,
+            double alpha, double gamma, int mcep_order, int fft_length, int itype, int otype,
+            int min_iter, int max_iter, int recursions,
+            double eps, double end_cond, int etype, double min_det,int frame_period, int interpolate_period)
+        {
+            throw null;
+        }
+
+        public static float[] DifferentialMelCepstrumCompensation(float[] rawform, float[] sp, float[] mcep,
+            double alpha, double gamma, int mcep_order, int fft_length, int itype, int otype,
+            int min_iter, int max_iter, int recursions,
+            double eps, double end_cond, int etype, double min_det,int frame_period, int interpolate_period)
+        {
+            throw null;
+        }
     }
 }

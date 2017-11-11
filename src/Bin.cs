@@ -75,5 +75,41 @@ namespace VCLibNet
 
             return y;
         }
+
+        public static double[] DifferentialMelCepstrumCompensation(double[] rawform, double[] sp, double[] mcep,
+            double alpha, double gamma, int mcep_order, int fft_length, int itype, int otype,
+            int min_iter, int max_iter, int recursions,
+            double eps, double end_cond, int etype, double min_det,int frame_period, int interpolate_period)
+        {
+            var y = new double[rawform.Length];
+
+            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(double)) * y.Length);
+
+            DoubleDefinitions.DifferentialMelCepstrumCompensation(rawform, rawform.Length, sp, sp.Length, mcep, mcep.Length, alpha, gamma, mcep_order, fft_length,
+                itype, otype, min_iter, max_iter, recursions, eps, end_cond, etype, min_det, frame_period, interpolate_period, ptr_y);
+
+            Marshal.Copy(ptr_y, y, 0, y.Length);
+            Marshal.FreeHGlobal(ptr_y);
+
+            return y;
+        }
+
+        public static float[] DifferentialMelCepstrumCompensation(float[] rawform, float[] sp, float[] mcep,
+            double alpha, double gamma, int mcep_order, int fft_length, int itype, int otype,
+            int min_iter, int max_iter, int recursions,
+            double eps, double end_cond, int etype, double min_det,int frame_period, int interpolate_period)
+        {
+            var y = new float[rawform.Length];
+
+            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(float)) * y.Length);
+
+            FloatDefinitions.DifferentialMelCepstrumCompensation(rawform, rawform.Length, sp, sp.Length, mcep, mcep.Length, alpha, gamma, mcep_order, fft_length,
+                itype, otype, min_iter, max_iter, recursions, eps, end_cond, etype, min_det, frame_period, interpolate_period, ptr_y);
+
+            Marshal.Copy(ptr_y, y, 0, y.Length);
+            Marshal.FreeHGlobal(ptr_y);
+
+            return y;
+        }
     }
 }
