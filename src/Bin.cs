@@ -13,7 +13,7 @@ namespace VCLibNet
             var f0_length = spectrum.Length / (fft_length / 2 + 1);
             var mcep = new double[(order + 1) * f0_length];
 
-            IntPtr ptr_mcep = Marshal.AllocHGlobal(Marshal.SizeOf<double>() * mcep.Length);
+            IntPtr ptr_mcep = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(double)) * mcep.Length);
 
             BinDefinitions.SPTK_mgcep(spectrum, spectrum.Length, alpha, gamma, order, fft_length,
                 itype, otype, min_iter, max_iter, recursions, eps, end_cond, etype, min_det, ptr_mcep);
@@ -30,7 +30,7 @@ namespace VCLibNet
         {
             var y = new double[wavform.Length];
 
-            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf<double>() * y.Length);
+            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(double)) * y.Length);
 
             BinDefinitions.SPTK_mlsadf(wavform, wavform.Length, mcep, mcep.Length, order, alpha, frame_period, i_period, pade, is_tranpose ? 1 : 0, is_invrese ? 1 : 0, is_coef_b ? 1 : 0, is_without_gain ? 1 : 0, ptr_y);
 
