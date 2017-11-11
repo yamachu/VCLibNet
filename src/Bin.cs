@@ -8,7 +8,7 @@ namespace VCLibNet
         public static double[] mgcep(double[] spectrum,
             double alpha = 0.35, double gamma = 0.0, int order = 25, int fft_length = 256,
             int itype = 0, int otype = 0, int min_iter = 2, int max_iter = 30, int recursions = -1,
-            double eps = 0.0, double end_cond = 0.01, int etype = 0, double min_det = 0.000001)
+            double eps = 0.0, double end_cond = 0.001, int etype = 0, double min_det = 0.000001)
         {
             var f0_length = spectrum.Length / (fft_length / 2 + 1);
             var mcep = new double[(order + 1) * f0_length];
