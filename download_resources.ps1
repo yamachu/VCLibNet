@@ -5,7 +5,11 @@ $latestVersion = $Matches.tagName
 "$latestVersion"
 $baseUrl = "https://github.com/yamachu/VCLib/releases/download/$latestVersion"
 
-Invoke-WebRequest "$baseUrl/libvclib.dylib" -OutFile resources\osx\libvclib.dylib
-Invoke-WebRequest "$baseUrl/libvclib.so" -OutFile resources\linux\libvclib.so
-Invoke-WebRequest "$baseUrl/x86_vclib.dll" -OutFile resources\win-x86\vclib.dll
-Invoke-WebRequest "$baseUrl/x64_vclib.dll" -OutFile resources\win-x64\vclib.dll
+Invoke-WebRequest "$baseUrl/libvclib_double.dylib" -OutFile resources\osx\libvclib_double.dylib
+Invoke-WebRequest "$baseUrl/libvclib_float.dylib" -OutFile resources\osx\libvclib_float.dylib
+Invoke-WebRequest "$baseUrl/libvclib_double.so" -OutFile resources\linux\libvclib_double.so
+Invoke-WebRequest "$baseUrl/libvclib_float.so" -OutFile resources\linux\libvclib_float.so
+Invoke-WebRequest "$baseUrl/x86_vclib_double.dll" -OutFile resources\win-x86\vclib_double.dll
+Invoke-WebRequest "$baseUrl/x64_vclib_double.dll" -OutFile resources\win-x64\vclib_double.dll
+Invoke-WebRequest "$baseUrl/x86_vclib_float.dll" -OutFile resources\win-x86\vclib_float.dll
+Invoke-WebRequest "$baseUrl/x64_vclib_float.dll" -OutFile resources\win-x64\vclib_float.dll

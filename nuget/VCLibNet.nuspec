@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>VCLibNet</id>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <authors>yamachu</authors>
     <owners>yamachu</owners>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -14,10 +14,14 @@
     <file src="..\ref\bin\Release\**" target="ref" exclude="**\*.deps.json" />
     <file src="..\src\bin\Release\**" target="lib" exclude="**\*.deps.json" />
     
-    <file src="..\resources/linux/libvclib.so" target="runtimes/linux/native/libvclib.so" />
-    <file src="..\resources/osx/libvclib.dylib" target="runtimes/osx/native/libvclib.dylib" />
-    <file src="..\resources/win-x86/vclib.dll" target="runtimes/win-x86/native/vclib.dll" />
-    <file src="..\resources/win-x64/vclib.dll" target="runtimes/win-x64/native/vclib.dll" />
+    <file src="..\resources/linux/libvclib_double.so" target="runtimes/linux/native/libvclib_double.so" />
+    <file src="..\resources/osx/libvclib_double.dylib" target="runtimes/osx/native/libvclib_double.dylib" />
+    <file src="..\resources/win-x86/vclib_double.dll" target="runtimes/win-x86/native/vclib_double.dll" />
+    <file src="..\resources/win-x64/vclib_double.dll" target="runtimes/win-x64/native/vclib_double.dll" />
+    <file src="..\resources/linux/libvclib_float.so" target="runtimes/linux/native/libvclib_float.so" />
+    <file src="..\resources/osx/libvclib_float.dylib" target="runtimes/osx/native/libvclib_float.dylib" />
+    <file src="..\resources/win-x86/vclib_float.dll" target="runtimes/win-x86/native/vclib_float.dll" />
+    <file src="..\resources/win-x64/vclib_float.dll" target="runtimes/win-x64/native/vclib_float.dll" />
 
     <!-- <file src="..\..\LICENSE" target="Content" /> -->
   </files>

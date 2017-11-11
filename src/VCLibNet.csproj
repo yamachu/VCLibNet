@@ -4,10 +4,4 @@
     <TargetFramework>netstandard1.1</TargetFramework>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <DefineConstants Condition="$(MyTarget.StartsWith('Linux'))">__Linux</DefineConstants>
-    <DefineConstants Condition="$(MyTarget.StartsWith('OSX'))">__OSX</DefineConstants>
-    <DefineConstants Condition="$(MyTarget.StartsWith('Windows'))">__Win</DefineConstants>
-  </PropertyGroup>
-
 </Project>
