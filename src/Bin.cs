@@ -48,11 +48,11 @@ namespace VCLibNet
             int order = 25, double alpha = 0.35, int frame_period = 100, int i_period = 1, int pade = 4,
             bool is_tranpose = false, bool is_invrese = false, bool is_coef_b = false, bool is_without_gain = false)
         {
-            var y = new double[wavform.Length];
+            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(double)) * wavform.Length);
 
-            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(double)) * y.Length);
+            var length = DoubleDefinitions.SPTK_mlsadf(wavform, wavform.Length, mcep, mcep.Length, order, alpha, frame_period, i_period, pade, is_tranpose ? 1 : 0, is_invrese ? 1 : 0, is_coef_b ? 1 : 0, is_without_gain ? 1 : 0, ptr_y);
 
-            DoubleDefinitions.SPTK_mlsadf(wavform, wavform.Length, mcep, mcep.Length, order, alpha, frame_period, i_period, pade, is_tranpose ? 1 : 0, is_invrese ? 1 : 0, is_coef_b ? 1 : 0, is_without_gain ? 1 : 0, ptr_y);
+            var y = new double[length];
 
             Marshal.Copy(ptr_y, y, 0, y.Length);
             Marshal.FreeHGlobal(ptr_y);
@@ -64,47 +64,11 @@ namespace VCLibNet
             int order = 25, double alpha = 0.35, int frame_period = 100, int i_period = 1, int pade = 4,
             bool is_tranpose = false, bool is_invrese = false, bool is_coef_b = false, bool is_without_gain = false)
         {
-            var y = new float[wavform.Length];
+            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(float)) * wavform.Length);
 
-            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(float)) * y.Length);
+            var length = FloatDefinitions.SPTK_mlsadf(wavform, wavform.Length, mcep, mcep.Length, order, alpha, frame_period, i_period, pade, is_tranpose ? 1 : 0, is_invrese ? 1 : 0, is_coef_b ? 1 : 0, is_without_gain ? 1 : 0, ptr_y);
 
-            FloatDefinitions.SPTK_mlsadf(wavform, wavform.Length, mcep, mcep.Length, order, alpha, frame_period, i_period, pade, is_tranpose ? 1 : 0, is_invrese ? 1 : 0, is_coef_b ? 1 : 0, is_without_gain ? 1 : 0, ptr_y);
-
-            Marshal.Copy(ptr_y, y, 0, y.Length);
-            Marshal.FreeHGlobal(ptr_y);
-
-            return y;
-        }
-
-        public static double[] DifferentialMelCepstrumCompensation(double[] rawform, double[] sp, double[] mcep,
-            double alpha, double gamma, int mcep_order, int fft_length, int itype, int otype,
-            int min_iter, int max_iter, int recursions,
-            double eps, double end_cond, int etype, double min_det,int frame_period, int interpolate_period)
-        {
-            var y = new double[rawform.Length];
-
-            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(double)) * y.Length);
-
-            DoubleDefinitions.DifferentialMelCepstrumCompensation(rawform, rawform.Length, sp, sp.Length, mcep, mcep.Length, alpha, gamma, mcep_order, fft_length,
-                itype, otype, min_iter, max_iter, recursions, eps, end_cond, etype, min_det, frame_period, interpolate_period, ptr_y);
-
-            Marshal.Copy(ptr_y, y, 0, y.Length);
-            Marshal.FreeHGlobal(ptr_y);
-
-            return y;
-        }
-
-        public static float[] DifferentialMelCepstrumCompensation(float[] rawform, float[] sp, float[] mcep,
-            double alpha, double gamma, int mcep_order, int fft_length, int itype, int otype,
-            int min_iter, int max_iter, int recursions,
-            double eps, double end_cond, int etype, double min_det,int frame_period, int interpolate_period)
-        {
-            var y = new float[rawform.Length];
-
-            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(float)) * y.Length);
-
-            FloatDefinitions.DifferentialMelCepstrumCompensation(rawform, rawform.Length, sp, sp.Length, mcep, mcep.Length, alpha, gamma, mcep_order, fft_length,
-                itype, otype, min_iter, max_iter, recursions, eps, end_cond, etype, min_det, frame_period, interpolate_period, ptr_y);
+            var y = new float[length];
 
             Marshal.Copy(ptr_y, y, 0, y.Length);
             Marshal.FreeHGlobal(ptr_y);
