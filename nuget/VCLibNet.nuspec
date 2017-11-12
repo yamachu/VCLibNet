@@ -11,7 +11,6 @@
     <!-- <licenseUrl>https://raw.githubusercontent.com/yamachu/VCLibNet/master/LICENSE</licenseUrl> -->
   </metadata>
   <files>
-    <file src="..\ref\bin\Release\**" target="ref" exclude="**\*.deps.json" />
     <file src="..\src\bin\Release\**" target="lib" exclude="**\*.deps.json" />
     
     <file src="..\resources/linux/libvclib_double.so" target="runtimes/linux/native/libvclib_double.so" />
