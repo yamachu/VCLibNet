@@ -90,11 +90,11 @@ namespace VCLibNet
             return mcep;
         }
 
-        public static float[] GetCompensationWavForm(float[] spectrum, float[] userMcep, float[] targetMcep)
+        public static float[] GetCompensationWavForm(float[] x, float[] userMcep, float[] targetMcep)
         {
-            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(float)) * spectrum.Length);
+            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(float)) * x.Length);
 
-            var y_length = FloatDefinitions.GetCompensationWavForm(spectrum, spectrum.Length, userMcep, targetMcep, userMcep.Length, ptr_y);
+            var y_length = FloatDefinitions.GetCompensationWavForm(x, x.Length, userMcep, targetMcep, userMcep.Length, ptr_y);
 
             var y = new float[y_length];
 
@@ -118,11 +118,11 @@ namespace VCLibNet
             return mcep;
         }
 
-        public static double[] GetCompensationWavForm(double[] spectrum, double[] userMcep, double[] targetMcep)
+        public static double[] GetCompensationWavForm(double[] x, double[] userMcep, double[] targetMcep)
         {
-            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(double)) * spectrum.Length);
+            IntPtr ptr_y = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(double)) * x.Length);
 
-            var y_length = DoubleDefinitions.GetCompensationWavForm(spectrum, spectrum.Length, userMcep, targetMcep, userMcep.Length, ptr_y);
+            var y_length = DoubleDefinitions.GetCompensationWavForm(x, x.Length, userMcep, targetMcep, userMcep.Length, ptr_y);
 
             var y = new double[y_length];
 
